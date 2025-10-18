@@ -31,7 +31,7 @@ services:
     #   value: "postgres://user:pass@host:5432/db" # replace or convert to secure secret
     #   secure: false
 
-  - type: 
+  - type: web
     name: sec4future
     repo: https://github.com/Richard-XYZ/REG-SITE-NEW.git
     branch: main
