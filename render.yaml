@@ -3,40 +3,40 @@
 
 services:
   - type: web
-    name: my-node-service
-    env: node
+    name: sec4future
+    env: static
     repo: https://github.com/Richard-XYZ/REG-SITE-NEW.git
     branch: main
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     # Instance and scaling
     plan: hobby
     numInstances: 1
     region: oregon
     # Build & start steps for automated deployment
-    buildCommand: npm ci && npm run build
-    startCommand: npm run start
+    buildCommand:
+    startCommand:
     # Health check and auto-deploy on repo changes
     healthCheckPath: /
     autoDeploy: true
     # Environment variables (use secure: true for secrets)
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: "10000"
-      # - key: DATABASE_URL
-      #   value: "postgres://user:pass@host:5432/db" # replace or convert to secure secret
-      #   secure: false
+    # envVars:
+    #   - key: NODE_ENV
+    #     value: production
+    #   - key: PORT
+    #     value: "10000"
+    # - key: DATABASE_URL
+    #   value: "postgres://user:pass@host:5432/db" # replace or convert to secure secret
+    #   secure: false
 
   - type: static
     name: sec4future
     repo: https://github.com/Richard-XYZ/REG-SITE-NEW.git
     branch: main
-    buildCommand: npm ci && npm run build
-    publishPath: build
-    autoDeploy: true
-    envVars:
-      - key: NODE_ENV
-        value: production
+    env: static
+    staticPublishPath: .
 # cronJobs:
 #   - name: nightly-maintenance
 #     schedule: "0 3 * * *" # run daily at 03:00 UTC
