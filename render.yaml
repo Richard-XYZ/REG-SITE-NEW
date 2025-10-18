@@ -27,8 +27,8 @@ services:
       #   value: "postgres://user:pass@host:5432/db" # replace or convert to secure secret
       #   secure: false
 
-static_sites:
-  - name: sec4future
+  - type: static
+    name: sec4future
     repo: https://github.com/Richard-XYZ/REG-SITE-NEW.git
     branch: main
     buildCommand: npm ci && npm run build
