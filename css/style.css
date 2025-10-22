@@ -214,9 +214,13 @@ textarea.form-control {
   margin-top: 0.5rem;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not([disabled]){
   transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+}
+
+.submit-btn:disabled{
+  cursor: no-drop;
 }
 
 .submit-btn:active {
